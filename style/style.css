@@ -8,8 +8,24 @@ body{
     background-attachment: fixed;
     background-color: black;
     margin-bottom: 0;
-
+    overflow: overlay;
 }
+
+  /* scroll personalizado*/
+body::-webkit-scrollbar{
+
+    width: 13px;
+    background: transparent;
+    
+
+}   
+body::-webkit-scrollbar-thumb{
+    background: rgb(44, 211, 80);
+    border-style:groove;
+}
+
+
+
 
 .portada img{
     width: 40%;
