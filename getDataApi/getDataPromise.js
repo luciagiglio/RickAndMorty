@@ -28,7 +28,6 @@ const getData = ((apiUrl, callback = null) => {
 
 const home = () =>{
     window.scrollTo(0,700)
-    audioHome()
     console.log("se ejecuto home")
 }
 
@@ -69,9 +68,15 @@ const printPagination = (info) => {
     
 }
 
-const audioHome = () => {
-    let html = '<audio src="- Wubalubadubdub Rick and Morty Adult Swim.mp3" autoplay> Your browser does not support the <code>audio</code> element.</audio>'
-    document.getElementById('audio').innerHTML = html;
-}
 
-//getData(API)
+const cargarSonido = function (fuente) {
+    const sonido = document.createElement("audio");
+    sonido.src = fuente;
+    sonido.setAttribute("preload", "auto");
+    sonido.setAttribute("controls", "none");
+    sonido.style.display = "none"; // <-- oculto
+    document.body.appendChild(sonido);
+    return sonido;
+};
+
+const miAudio = cargarSonido("rick.mp3");
