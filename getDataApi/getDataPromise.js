@@ -1,4 +1,8 @@
 /* get api */
+navigator.mediaDevices.getUserMedia({audio: true}).then((stream)=>{
+    console.log(stream)
+})
+
 
 const API = 'https://rickandmortyapi.com/api/character/';
 
