@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var words = [ 'back', 'next', 'hello', 'git', 'github', 'previous', 'go back', 'following', 'home']; 
+var words = [ 'back', 'next', 'hello', 'git', 'github', 'previous', 'go back', 'following', 'home', 'view credits', 'credits', 'creators']; 
 var grammar = '#JSGF V1.0; grammar words; public <word> = ' + words.join(' | ') + ' ;'
 
 var recognition = new SpeechRecognition();
@@ -59,18 +59,15 @@ recognition.onresult = function(event) {
     case "go to project":
       redirGit()
       break
-    case "":
+    case "credits":
+      credits()
       break
-    case "":
+    case "view credits":
+      credits()
       break
-    case "":
+    case "creators":
+      credits()
       break
-    case "":
-      break
-    case "":
-      break
-    
-
   }
   
   i++
@@ -88,9 +85,14 @@ recognition.onspeechend = function() {
   recognition.stop();
 }
 
+var start = true
 document.body.onclick = function() {
-  alerta()
+  if(start){
+    alerta()
   recognition.start();
+  }
+  start = false
+  
   
 }
 
