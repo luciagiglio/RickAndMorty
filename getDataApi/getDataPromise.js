@@ -2,16 +2,13 @@
 
 const API = 'https://rickandmortyapi.com/api/character/';
 
-const PEOPLE_URL = 'character/:id'
-const NAME_ID = 'character/:name'
-const IMG_ID = 'character/:image'
-//const INFO = 'character/:info'
 
-var next = ""
-var preview = ""
+
+ var next = ""
+ var preview = ""
 //fetch recibe un la url a la que se va a conectar
 
-const getData = (apiUrl, callback = null) => {
+const getData = ((apiUrl, callback = null) => {
     return fetch(apiUrl)
         .then(response => response.json()) //repuesta traida en formato json
         .then(json => {
@@ -26,10 +23,12 @@ const getData = (apiUrl, callback = null) => {
 
         .catch(error => { console.error('Error: ', error) })
         
-}
+    })
+
 
 const home = () =>{
     window.scrollTo(0,700)
+    audioHome()
     console.log("se ejecuto home")
 }
 
@@ -52,10 +51,7 @@ const printData = (data) => {
             html += '</div>'
             html += '</div>'
             count++
-        }
-        
-        
-        
+        } 
     });
     document.getElementById('infoCharacters').innerHTML = html;
     
@@ -65,10 +61,17 @@ const printData = (data) => {
 
 const printPagination = (info) => {
     let preDisable = info.prev == null ? 'disabled' : '';
-    let nexteDisable = info.next == null ? 'disabled' : '';
+    let nextDisable = info.next == null ? 'disabled' : '';
 
     let html = `<li class="page-item ${preDisable}"><a class="page-link" onclick="getData('${info.prev}')" >Back</a></li>`
-    html += `<li class="page-item ${nexteDisable}"><a class="page-link" onclick="getData('${info.next}')" >Next</a></li>`
+    html += `<li class="page-item ${nextDisable}"><a class="page-link" onclick="getData('${info.next}')" >Next</a></li>`
     document.getElementById('pagination').innerHTML = html;
     
 }
+
+const audioHome = () => {
+    let html = '<audio src="- Wubalubadubdub Rick and Morty Adult Swim.mp3" autoplay> Your browser does not support the <code>audio</code> element.</audio>'
+    document.getElementById('audio').innerHTML = html;
+}
+
+//getData(API)
