@@ -28,7 +28,6 @@ const getData = ((apiUrl, callback = null) => {
 
 const home = () =>{
     window.scrollTo(0,700)
-    console.log("se ejecuto home")
 }
 
 const printData = (data) => {
