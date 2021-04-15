@@ -89,7 +89,9 @@ recognition.onspeechend = function() {
 }
 
 document.body.onclick = function() {
+  alerta()
   recognition.start();
+  
 }
 
 const redirGit = () =>
